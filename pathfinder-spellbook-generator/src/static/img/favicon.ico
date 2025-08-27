@@ -1,0 +1,94 @@
+import json
+from builder.spell import build_spellbook
+
+def load_character_data(filepath):
+    with open(filepath, 'r') as file:
+        return json.load(file)
+
+def generate_html(spellbook):
+    # Modèle HTML
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grimoire de Sorts</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
+                color: #333;
+            }
+            h1 {
+                text-align: center;
+                color: #5a5a5a;
+            }
+            .spell-category {
+                margin: 20px 0;
+                padding: 10px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            .spell {
+                margin: 10px 0;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #fafafa;
+            }
+            .spell h2 {
+                margin: 0;
+                font-size: 1.2em;
+                color: #007bff;
+            }
+            .spell p {
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Grimoire de Sorts</h1>
+        {content}
+    </body>
+    </html>
+    """
+
+    content = ""
+
+    # Ajouter les cantrips
+    if spellbook["cantrips"]:
+        content += "<div class='spell-category'><h2>Cantrips</h2>"
+        for spell in spellbook["cantrips"]:
+            content += f"<div class='spell'><h2>{spell.name}</h2><p>Niveau: {spell.level}</p><p>Type: {spell.type}</p><p>Actions: {spell.actions}</p><p>Portée: {spell.range}</p><p>Zone: {spell.area}</p><p>Cible: {spell.target}</p><p>Durée: {spell.duration}</p><p>Description: {spell.description}</p></div>"
+        content += "</div>"
+
+    # Ajouter les sorts réguliers par niveau
+    for level, spells in spellbook["spells"].items():
+        if spells:
+            content += f"<div class='spell-category'><h2>Sorts de Niveau {level}</h2>"
+            for spell in spells:
+                content += f"<div class='spell'><h2>{spell.name}</h2><p>Niveau: {spell.level}</p><p>Type: {spell.type}</p><p>Actions: {spell.actions}</p><p>Portée: {spell.range}</p><p>Zone: {spell.area}</p><p>Cible: {spell.target}</p><p>Durée: {spell.duration}</p><p>Description: {spell.description}</p></div>"
+            content += "</div>"
+
+    # Ajouter les sorts focalisés
+    if spellbook["focus"]:
+        content += "<div class='spell-category'><h2>Sorts Focalisés</h2>"
+        for spell in spellbook["focus"]:
+            content += f"<div class='spell'><h2>{spell.name}</h2><p>Niveau: {spell.level}</p><p>Type: {spell.type}</p><p>Actions: {spell.actions}</p><p>Portée: {spell.range}</p><p>Zone: {spell.area}</p><p>Cible: {spell.target}</p><p>Durée: {spell.duration}</p><p>Description: {spell.description}</p></div>"
+        content += "</div>"
+
+    # Générer le HTML final
+    html_output = html_content.format(content=content)
+
+    # Écrire le fichier HTML
+    with open("spellbook.html", "w", encoding="utf-8") as f:
+        f.write(html_output)
+
+if __name__ == "__main__":
+    character_data = load_character_data("character_data.json")
+    spellbook = build_spellbook(character_data)
+    generate_html(spellbook)
+    print("Le grimoire de sorts a été généré avec succès dans 'spellbook.html'.")

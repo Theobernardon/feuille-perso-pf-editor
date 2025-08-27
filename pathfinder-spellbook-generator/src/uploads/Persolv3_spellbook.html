@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimoire de Liraël &#34;Tonne-feu&#34; Etoile-Cendre - Pathfinder 2e</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+        
+        :root {
+            --parchment: #f5e7c1;
+            --ink: #2a2822;
+            --primary: #8b0000;
+            --secondary: #4b3621;
+            --accent: #c19a6b;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --border: #a67c52;
+            --arcane: #6e3a9c;
+            --divine: #d4af37;
+            --occult: #990099;
+            --primal: #007a3d;
+        }
+        
+        /* Styles globaux */
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: var(--parchment);
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c4H2hWAAACQklEQVR4nO3WiXLDIAwFUGIg4I5D4jjx//3nktjZ7Gw7tdOZ7UwHQOhJIEO4uLi4uPgP2P9ykV3XeO+b7t9cpH7UD3lZZJDcBvJUPUhkkHz1J2g1GJJPRYzZP+kCGIq+I2Jr/YjjzI+S+ZuXlhXJSoZ6KacdElnJk59UspJBSodiauoAlYzYt0u3XyJkotIdci3SVTpAJSO3cpEwDDVI/aQN7UQZBoltPIQYIH1BjNC/qqGc+yvj9KCMy1hGgs9pOEakY9or4kiFTFOg9GcYggy7RcIUt2eE9JtFJGy3+6yQQMVLHsmQYdztMMDlnAdHQiW5BqTqQ5wjb4WumssrIuyGTk2E6PwUfgSEA++ZkpBQXF6L1OtBTaUdXlVTwN6QHNVee2ORshkUw1GJeVwbsrPTvJhbIz5u7i0qvcIi1OQUYe5hkX1ewp0ibFxcm3VVVVnnmxNWGEmvH+S6i8Tk8YD5Q/McYoKt7/vLzO5GnpJgKsrC9SV0stvE2rWFJmsSpAtCnOo21JJJWsZS3XLIttODExdj3DbsJNXmmaQP3zXryHNeCJMdXUt6luCIqBN/c7Y9FcfBJE8ztbouM3sfBlsH3+vZp7+6teXcLsYY2WE+XHZoyU2+Qgw3C8OZQw0jI8XcCWEZ3g19fA3JMQUuNJK6ZM7WnzIcOdBJXjcJE4fyS4aJw/ZP9MvGEqcgOJ0ywq6mnx33JQNOGfU+Qv3m4GJz+sj3DlcGnGXY/t3ztvwnJhcXFxcXfwHBQRUnQRQqxAAAAABJRU5ErkJggg==');
+            color: var(--ink);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .grimoire {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: var(--parchment);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 8px var(--shadow);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grimoire::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c4H2hWAAACQklEQVR4nO3WiXLDIAwFUGIg4I5D4jjx//3nktjZ7Gw7tdOZ7UwHQOhJIEO4uLi4uPgP2P9ykV3XeO+b7t9cpH7UD3lZZJDcBvJUPUhkkHz1J2g1GJJPRYzZP+kCGIq+I2Jr/YjjzI+S+ZuXlhXJSoZ6KacdElnJk59UspJBSodiauoAlYzYt0u3XyJkotIdci3SVTpAJSO3cpEwDDVI/aQN7UQZBoltPIQYIH1BjNC/qqGc+yvj9KCMy1hGgs9pOEakY9or4kiFTFOg9GcYggy7RcIUt2eE9JtFJGy3+6yQQMVLHsmQYdztMMDlnAdHQiW5BqTqQ5wjb4WumssrIuyGTk2E6PwUfgSEA++ZkpBQXF6L1OtBTaUdXlVTwN6QHNVee2ORshkUw1GJeVwbsrPTvJhbIz5u7i0qvcIi1OQUYe5hkX1ewp0ibFxcm3VVVVnnmxNWGEmvH+S6i8Tk8YD5Q/McYoKt7/vLzO5GnpJgKsrC9SV0stvE2rWFJmsSpAtCnOo21JJJWsZS3XLIttODExdj3DbsJNXmmaQP3zXryHNeCJMdXUt6luCIqBN/c7Y9FcfBJE8ztbouM3sfBlsH3+vZp7+6teXcLsYY2WE+XHZoyU2+Qgw3C8OZQw0jI8XcCWEZ3g19fA3JMQUuNJK6ZM7WnzIcOdBJXjcJE4fyS4aJw/ZP9MvGEqcgOJ0ywq6mnx33JQNOGfU+Qv3m4GJz+sj3DlcGnGXY/t3ztvwnJhcXFxcXfwHBQRUnQRQqxAAAAABJRU5ErkJggg==');
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* En-tête du grimoire */
+        .grimoire-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+        
+        .grimoire-title {
+            font-family: 'IM Fell English', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--primary);
+            text-shadow: 1px 1px 2px var(--shadow);
+        }
+        
+        .grimoire-subtitle {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: var(--secondary);
+        }
+        
+        .character-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            margin: 0.5rem;
+            text-align: center;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .tradition-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+            margin-left: 0.5rem;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+        
+        .tradition-arcane { background-color: var(--arcane); }
+        .tradition-divine { background-color: var(--divine); }
+        .tradition-occult { background-color: var(--occult); }
+        .tradition-primal { background-color: var(--primal); }
+        
+        /* Navigation */
+        .grimoire-nav {
+            margin: 2rem 0;
+            border-bottom: 1px solid var(--accent);
+        }
+        
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-x: auto;
+        }
+        
+        .nav-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            border-bottom: none;
+            background-color: rgba(245, 231, 193, 0.8);
+            margin-right: 0.2rem;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+        }
+        
+        .nav-tab:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .nav-tab.active {
+            background-color: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        /* Sections de sorts */
+        .spell-section {
+            display: none;
+        }
+        
+        .spell-section.active {
+            display: block;
+        }
+        
+        .level-header {
+            font-family: 'IM Fell English', serif;
+            color: var(--primary);
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 0.3rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .level-header h3 {
+            margin: 0;
+        }
+        
+        .slots-info {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+        
+        /* Cartes de sorts */
+        .spell-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .spell-card {
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .spell-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .spell-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spell-name {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--primary);
+        }
+        
+        .spell-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 2px;
+        }
+        
+        .spell-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spell-trait {
+            font-size: 0.7rem;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.1rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        .spell-trait.rarity-uncommon {
+            background-color: #c45500;
+        }
+        
+        .spell-trait.rarity-rare {
+            background-color: #0c5da5;
+        }
+        
+        .spell-trait.rarity-unique {
+            background-color: #800080;
+        }
+        
+        .spell-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .spell-description {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--accent);
+            padding-top: 0.8rem;
+        }
+        
+        /* Pied de page */
+        .grimoire-footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            border-top: 1px solid var(--accent);
+            padding-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grimoire {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            
+            .spell-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .grimoire-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Boutons d'impression */
+        .print-controls {
+            text-align: right;
+            margin: 1rem 0;
+        }
+        
+        .print-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Crimson Text', serif;
+        }
+        
+        .print-btn:hover {
+            background-color: var(--primary);
+        }
+        
+        @media print {
+            body {
+                background: none;
+                color: black;
+            }
+            
+            .grimoire {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .print-controls {
+                display: none;
+            }
+            
+            .nav-tab:not(.active) {
+                display: none;
+            }
+            
+            .nav-tabs {
+                border-bottom: 1px solid #000;
+            }
+            
+            .spell-section:not(.active) {
+                display: block;
+            }
+            
+            .spell-card {
+                break-inside: avoid;
+                box-shadow: none;
+            }
+            
+            .level-header {
+                break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grimoire">
+        <div class="print-controls">
+            <button class="print-btn" onclick="window.print()">Imprimer le Grimoire</button>
+        </div>
+        
+        <header class="grimoire-header">
+            <h1 class="grimoire-title">Grimoire de Liraël &#34;Tonne-feu&#34; Etoile-Cendre</h1>
+            <p class="grimoire-subtitle">Magus de niveau 3</p>
+            
+            <div class="character-info">
+                <div class="info-item">
+                    <span class="info-label">Type d'incantateur:</span>
+                    <span>Préparé</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Tradition:</span>
+                    <span>Arcanique</span>
+                    <span class="tradition-badge tradition-arcane">Arcane</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Caractéristique d'incantation:</span>
+                    <span>Intelligence</span>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="grimoire-nav">
+            <ul class="nav-tabs">
+                <li class="nav-tab active" data-target="cantrips">Tours de magie</li>
+                
+                <li class="nav-tab" data-target="focus">Sorts focalisés</li>
+                
+                
+                
+                    
+                    <li class="nav-tab" data-target="level1">Niveau 1</li>
+                    
+                
+                    
+                    <li class="nav-tab" data-target="level2">Niveau 2</li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+        
+        <div class="spell-sections">
+            <!-- Tours de magie -->
+            <div class="spell-section active" id="cantrips">
+                <div class="level-header">
+                    <h3>Tours de magie</h3>
+                </div>
+                
+                <div class="spell-cards">
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Bouclier (Shield)</h4>
+                            <div class="spell-actions">1</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Force</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <span class="detail-label">Durée</span>
+                            <span>jusqu&#39;au début de votre prochain tour</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Vous levez un bouclier de force magique. Ceci compte comme si vous utilisiez Lever un bouclier, vous octroyant un bonus de circonstances de +1 à la CA jusqu'au début de votre prochain tour, mais cela ne nécessite aucune main pour l'utiliser.</p>
+<p>Tant que le sort est actif, vous pouvez utiliser la réaction Blocage au bouclier avec votre bouclier magique. Le bouclier possède une Solidité de 5. Vous pouvez utiliser la réaction du sort pour réduire les dégâts de tout sort ou effet magique, même s'il n'inflige pas des dégâts physiques. Après avoir effectué Blocage au bouclier, le sort se termine et vous ne pouvez plus le lancer de nouveau pendant 10 minutes.</p>
+
+<p>Effet : Bouclier</p>
+<p>Effet : Immunité à bouclier</p>
+
+<p><b>Intensifié (+2)</b> La Solidité du bouclier augmente de 5.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Détection des métaux (Detect Metal)</h4>
+                            <div class="spell-actions">2</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Detection</span>
+                            
+                            <span class="spell-trait">Manipulate</span>
+                            
+                            <span class="spell-trait">Metal</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Vous vous harmonisez aux champs magnétiques, devenant conscient de la présence ou de l'absence d'objets, de veines et de dépôts métalliques dans la zone. Vous pouvez choisir d'ignorer les métaux dont vous avez conscience, comme l'équipement que vous et vos alliés portez.</p>
+<p>Vous détectez des métaux cachés par des illusions (comme Invisibilité) uniquement si l'illusion possède un rang inférieur à celui de votre sort <em>Détection des métaux</em>. Contre les illusions trompeuses <em>Détection des métaux</em> remarque toujours une absence de métal lorsqu'un objet métallique est transformé en objet non métallique. Quoi qu'il en soit si la tromperie implique de déguiser une objet métallique pour le transformer en un autre, comme prétendre qu'une pièce de cuivre est composée d'or, <em>Détection des métaux</em> ne retient que la présence de métal et pas son type, même si le rang de votre sort de <em>Détection des métaux</em> est supérieur à celui de l'effet d'illusion.</p>
+
+<p><b>Intensifié (3e)</b> Vous pouvez discerner tous les types de métaux que vous avez détecté. Votre sort peut surmonter les sorts illusoires trompeurs qui cache un métal en un autre si le rang d'effet de la magie est inférieur à celui de votre sort de <em>Détection des métaux</em>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Explosion caustique (Caustic Blast)</h4>
+                            <div class="spell-actions">2</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Acide</span>
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Manipulate</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            <span class="detail-label">Portée</span>
+                            <span>9 mètres</span>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Vous projetez une grosse boule d'acide qui explose immédiatement, aspergeant les créatures proches. Les créatures dans la zone subissent 1d8 dégâts d'acide avec un jet de Réflexes basique. Sur un échec critique, la créature subit aussi @Damage[(1+floor((@item.rank -1)/2))[persistent,acid]]{1 dégât d'acide persistant}.</p>
+
+<p><b>Intensifié (+2)</b> Les dégâts initiaux augmentent de 1d8 et les dégâts persistants sur un échec critique augmente de 1.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Fil électrique vivant (Live Wire)</h4>
+                            <div class="spell-actions">2</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Attaque</span>
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Électricité</span>
+                            
+                            <span class="spell-trait">Manipulate</span>
+                            
+                            <span class="spell-trait">Metal</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            <span class="detail-label">Portée</span>
+                            <span>9 mètres</span>
+                            
+                            
+                            
+                            <span class="detail-label">Cibles</span>
+                            <span>1 créature</span>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Vous faites surgir un filament de cuivre effilé, bourdonnant de courant électrique, qui frappe votre ennemi. Le filament inflige 1d4 dégâts tranchants et 1d4 dégâts d'électricité, dépendant de votre résultat d'attaque de sort contre la CA de votre cible.</p>
+
+<p><b>Succès critique</b> La cible subit le double des dégâts et @Damage[(ceil(@item.rank / 2))d4[persistent,electricity]]{1d4 dégâts d'électricité persistants} supplémentaires.</p>
+<p><b>Succès</b> La cible subit la totalité des dégâts.</p>
+<p><b>Échec</b> La cible subit les dégâts d'électricité, mais pas les dégâts tranchants.</p>
+<p><b>Échec critique</b> La cible n'est pas affectée.</p>
+
+<p><b>Intensifié (+2)</b> Les dégâts tranchants, les dégâts initiaux d'électricité et les dégâts persistants d'électricité en cas de coup critique augmentent chacun de 1d4.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Gouge griffue (Gouging Claw)</h4>
+                            <div class="spell-actions">2</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Attaque</span>
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Manipulate</span>
+                            
+                            <span class="spell-trait">Morph</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            <span class="detail-label">Portée</span>
+                            <span>contact</span>
+                            
+                            
+                            
+                            <span class="detail-label">Cibles</span>
+                            <span>1 créature</span>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Vous transformez temporairement votre membre en un appendice griffu. Faites un jet d'attaque de sort au corps-à-corps contre la CA de votre cible. Si vous touchez, vous infligez à votre choix 2d6 dégâts tranchants ou 2d6 dégâts perforants, plus 2 dégâts de saignement. En cas de succès critique, vous infligez le double des dégâts plus le double des dégâts de saignement.</p>
+
+<p><b>Intensifié (+1)</b> Les dégâts augmentent de 1d6 et les dégâts de saignement augmentent de 1.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Manipulation télékinésique (Telekinetic Hand)</h4>
+                            <div class="spell-actions">2</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Manipulate</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            <span class="detail-label">Portée</span>
+                            <span>9 mètres</span>
+                            
+                            
+                            
+                            <span class="detail-label">Cibles</span>
+                            <span>1 objet non tenu d&#39;Encombrement léger ou inférieur</span>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Vous créez une main flottante magique, soit invisible soit fantomatique, qui saisit l'objet ciblé et le déplace lentement jusqu'à 6 mètres dans n'importe quelle direction. Lorsque vous Maintenez le sort, Vous pouvez déplacer l'objet de 6 mètres supplémentaires. Si l'objet est en l'air lorsque le sort se termine, il tombe.</p>
+
+<p><b>Intensifié (3e)</b> Vous pouvez cibler un objet non porté d'Encombrement 1 ou inférieur.</p>
+<p><b>Intensifié (5e)</b> La portée passe à 18 m et vous pouvez cibler un objet non porté d'Encombrement 1 ou inférieur.</p>
+<p><b>Intensifié (7e)</b> La portée passe à 18 m et vous pouvez cibler un objet non porté d'Encombrement 2 ou inférieur.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Message</h4>
+                            <div class="spell-actions">1</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Auditory</span>
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Illusion</span>
+                            
+                            <span class="spell-trait">Linguistic</span>
+                            
+                            <span class="spell-trait">Mental</span>
+                            
+                            <span class="spell-trait">Subtle</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            <span class="detail-label">Portée</span>
+                            <span>36 mètres</span>
+                            
+                            
+                            
+                            <span class="detail-label">Cibles</span>
+                            <span>1 créature</span>
+                            
+                            
+                            
+                            
+                            
+                            <span class="detail-label">Durée</span>
+                            <span>voir texte</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Votre bouche prononce des mots à voix basse, mais au lieu de sortir de votre bouche, ils sont transférés directement aux oreilles de la cible. Bien que les autres ne puissent entendre mieux vos paroles que si vous les prononciez normalement, la cible peut entendre vos paroles comme si elle se tenait à côté de vous. La cible peut répondre brièvement par une réaction ou par une action gratuite lors de son prochain tour si elle le souhaite, mais elle doit pouvoir vous voir et se trouver dans la portée de votre sort pour le faire. Si elle répond, sa réponse est transférée directement dans vos oreilles, exactement comme le message initial.</p>
+
+<p><b>Intensifié (3e)</b> La portée du sort passe à 150 mètres.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Prestidigitation</h4>
+                            <div class="spell-actions">2</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Tour de magie</span>
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Manipulate</span>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            <span class="detail-label">Portée</span>
+                            <span>3 mètres</span>
+                            
+                            
+                            
+                            <span class="detail-label">Cibles</span>
+                            <span>1 objet (cuisine, soulève ou nettoie uniquement)</span>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Même la plus simple des magies peut vous servir. Vous pouvez accomplir des effets magiques simples tant que vous Maintenez le sort. Chaque fois que vous Maintenez le sort, vous pouvez choisir une parmi quatre options :</p>
+<ul>
+<li><b>Cuisine</b> Réchauffe, refroidit ou aromatise 500 g de matériau non vivant.</li>
+<li><b>Soulève</b> Soulève lentement à 30 cm au-dessus du sol un objet non porté d'Encombrement léger ou moins.</li>
+<li><b>Fabrique</b> Crée un objet temporaire d'Encombrement négligeable, composé de substance magique congelée. L'objet paraît grossier, artificiel et extrêmement fragile — Il ne peut servir d'outil, ni d'arme, ni de locus, ni de coût pour un sort.</li>
+<li><b>Nettoie</b> Colorise, nettoie ou salit un objet d'Encombrement léger ou moins. Vous pouvez affecter un objet d'Encombrement 1 après 10 rounds de concentration et un objet encore plus grand avec 1 minute par Encombrement.</li>
+</ul>
+<p><em>Prestidigitation</em> ne peut pas infliger de dégâts ou provoquer des états défavorables. Tout changement réel apporté à un objet (en plus de ceux précisés plus haut) persiste tant que vous Maintenez le sort.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Sorts focalisés -->
+            
+            <div class="spell-section" id="focus">
+                <div class="level-header">
+                    <h3>Sorts focalisés</h3>
+                </div>
+                
+                <div class="spell-cards">
+                    
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">Étoile tirée (Shooting Star)</h4>
+                            <div class="spell-actions">1</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            
+                            <span class="spell-trait">Concentrate</span>
+                            
+                            <span class="spell-trait">Sort focalisé</span>
+                            
+                            <span class="spell-trait">Magus</span>
+                            
+                            
+                            
+                            <span class="spell-trait rarity-uncommon">Uncommon</span>
+                            
+                        </div>
+                        
+                        <div class="spell-details">
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="spell-description">
+                            <p>Vous lâchez un projectile qui vole droit et laisse derrière lui la traînée flamboyante d'un météore. Effectuez une Frappe à distance, en ignorant le camouflage de la cible et en réduisant son abri d'un degré pour cette Frappe uniquement (important à standard, standard à partiel et partiel à nul). Si le coup touche, la traînée de météores reste suspendue dans l'air. Cela annule les effets d'un camouflage et donne l'avantage de la réduction de la couverture à toutes les attaques effectuées contre la créature (par n'importe qui) jusqu'au début de votre prochain tour.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <!-- Sorts par niveau -->
+            
+                
+                <div class="spell-section" id="level1">
+                    <div class="level-header">
+                        <h3>Sorts de niveau 1</h3>
+                    </div>
+                    
+                    <div class="spell-cards">
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Arme conductrice (Conductive Weapon)</h4>
+                                <div class="spell-actions">2</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Concentrate</span>
+                                
+                                <span class="spell-trait">Électricité</span>
+                                
+                                <span class="spell-trait">Manipulate</span>
+                                
+                                <span class="spell-trait">Metal</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>contact</span>
+                                
+                                
+                                
+                                <span class="detail-label">Cibles</span>
+                                <span>1 arme de métal qui n&#39;est pas tenue ou est maniée par vous ou un allié consentant</span>
+                                
+                                
+                                
+                                
+                                
+                                <span class="detail-label">Durée</span>
+                                <span>1 minute</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Vous canalisez un puissant courant électrique à travers le métal d'une arme, en électrisant tous ceux que l'arme atteint. La cible devient une arme <em>de foudre +1</em>. Si la cible d'une attaque avec l'arme porte une armure de métal ou est principalement constituée de métal, le dé de dégât de la rune de foudre est de 1d12.</p>
+<p>Effet : Arme conductrice</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Embrouiller (Befuddle)</h4>
+                                <div class="spell-actions">2</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Concentrate</span>
+                                
+                                <span class="spell-trait">Émotion</span>
+                                
+                                <span class="spell-trait">Manipulate</span>
+                                
+                                <span class="spell-trait">Mental</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>9 mètres</span>
+                                
+                                
+                                
+                                <span class="detail-label">Cibles</span>
+                                <span>1 créature</span>
+                                
+                                
+                                
+                                
+                                
+                                <span class="detail-label">Durée</span>
+                                <span>1 round</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Vous semez les graines de la confusion dans l'esprit de la cible, de sorte que ses actions et ses pensées sont maladroites.</p>
+
+<p><b>Succès critique</b> La cible n'est pas affectée.</p>
+<p><b>Succès</b> La cible est Maladroite 1 et Stupéfiée 1.</p>
+<p><b>Échec</b> La cible est Maladroite 2 et Stupéfiée 2.</p>
+<p><b>Échec critique</b> La cible est Maladroite 3, Stupéfiée 3 et Confuse.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Forge</h4>
+                                <div class="spell-actions">2</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Feu</span>
+                                
+                                
+                                
+                                <span class="spell-trait rarity-uncommon">Uncommon</span>
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>9 mètres</span>
+                                
+                                
+                                
+                                <span class="detail-label">Cibles</span>
+                                <span>1 créature ou un objet non tenu</span>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Développée avant l'introduction du Lagon de fer, ce tour de magie pour chauffer à blanc le métal a aussi trouvé une utilisation au combat inestimable. Vous chauffez à blanc la cible, lui infligeant 3d6 dégâts de feu. Si la cible est un objet métallique, réduisez sa solidité d'un montant égal aux dégâts infligés jusqu'à la fin de votre prochain tour.</p>
+
+<p><b>Succès critique</b> La cible n'est pas affectée.</p>
+<p><b>Succès</b> La cible ne subit que la moitié des dégâts.</p>
+<p><b>Échec</b> La cible subit la totalité des dégâts.</p>
+<p><b>Échec critique</b> La cible subit le double des dégâts et si c'est une créature métallique, elle obtient une faiblesse 2 contre les dégâts physiques jusqu'à la fin de votre prochain tour.</p>
+
+<p><b>Intensifié (+1)</b> Les dégâts augmentent de 2d6 et la faiblesse sur un coup critique augmente de 2.</p>
+<p>Effet : Forge (Échec critique)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Gemme explosive (Shattering Gem)</h4>
+                                <div class="spell-actions">2</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Concentrate</span>
+                                
+                                <span class="spell-trait">Terre</span>
+                                
+                                <span class="spell-trait">Manipulate</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>contact</span>
+                                
+                                
+                                
+                                <span class="detail-label">Cibles</span>
+                                <span>1 créature</span>
+                                
+                                
+                                
+                                
+                                
+                                <span class="detail-label">Durée</span>
+                                <span>1 minute</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Une grande gemme flotte autour de la cible selon un schéma erratique. La gemme possède 5 Points de vie. Chaque fois qu'une créature Frappe la cible, la cible fait un @Check[flat|dc:11|showDC:all]. En cas de succès, la gemme bloque l'attaque, de sorte que l'attaque cause d'abord des dégâts à la gemme puis applique tous les éventuels dégâts restants à la cible. Si la gemme est réduite à 0 Point de vie, elle explose, infligeant immédiatement à la créature qui l'a détruite 1d8 dégâts tranchants (Jet de Réflexes basique), tant que la créature est à moins de 3 mètres de la cible.</p>
+
+<p><b>Intensifié (+1)</b> La gemme possède 5 Points de vie supplémentaires et les dégâts infligés par sa détonation augmentent de 1d8.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Pas de plomb (Leaden Steps)</h4>
+                                <div class="spell-actions">2</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Concentrate</span>
+                                
+                                <span class="spell-trait">Manipulate</span>
+                                
+                                <span class="spell-trait">Metal</span>
+                                
+                                <span class="spell-trait">Morph</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>9 mètres</span>
+                                
+                                
+                                
+                                <span class="detail-label">Cibles</span>
+                                <span>1 créature</span>
+                                
+                                
+                                
+                                
+                                
+                                <span class="detail-label">Durée</span>
+                                <span>1 minute</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Vous transformez en partie les pieds de vos ennemis avec des morceaux de métal encombrants, ralentissant leur marche. La cible effectue une Jet de Vigueur.</p>
+
+<p><b>Succès critique</b> La cible n'est pas affectée</p>
+<p><b>Succès</b> La cible est Surchargée et obtient une faiblesse de 2 à l'électricité jusqu'à la fin de votre prochain tour.</p>
+<p><b>Échec</b> La cible est Encombrée et obtient une faiblesse de 2 à l'électricité.</p>
+<p><b>Échec critique</b> La cible est Encombrée et obtient une faiblesse de 3 à l'électricité.</p>
+<p>Effet : Pas de plomb</p>
+
+<p><b>Intensifié (+1)</b> La faiblesse augmente de 1.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Sbire fantasmagorique (Phantasmal Minion)</h4>
+                                <div class="spell-actions">3</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Concentrate</span>
+                                
+                                <span class="spell-trait">Manipulate</span>
+                                
+                                <span class="spell-trait">Summon</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>18 mètres</span>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Vous convoquez un Sbire fantasmagorique. Le sbire possède la forme approximative d'un humanoïde. Vous pouvez choisir de le rendre invisible ou de lui donner une apparence éphémère, mais il s'agit visiblement d'un effet magique, pas d'une créature réelle.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            
+                
+                <div class="spell-section" id="level2">
+                    <div class="level-header">
+                        <h3>Sorts de niveau 2</h3>
+                    </div>
+                    
+                    <div class="spell-cards">
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Arsenal embrasé (Blazing Armory)</h4>
+                                <div class="spell-actions">2</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Concentrate</span>
+                                
+                                <span class="spell-trait">Feu</span>
+                                
+                                <span class="spell-trait">Manipulate</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>9 mètres</span>
+                                
+                                
+                                
+                                <span class="detail-label">Cibles</span>
+                                <span>1 créature consentante</span>
+                                
+                                
+                                
+                                
+                                
+                                <span class="detail-label">Durée</span>
+                                <span>5 minutes</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Tant que vous disposez de magie, vous n'êtes jamais désarmé. Vous matérialisez un simulacre enflammé de n'importe quel arme courante simple ou de guerre dans la main de la cible. La cible doit avoir une main libre pour tenir l'arme, sinon l'arme tombe au sol dans l'espace de la cible. L'arsenal enflammé fonctionne comme une <em>arme de frappe +1</em> et son type de dégâts se change en feu. Le type de dégâts ne peut être changé en utilisant le trait polyvalent, le trait configurable ou des méthodes similaires.</p>
+<p>Une arme de jet se rematérialise dans la main de la cible après avoir terminé la Frappe. Si vous choisissez une arme à distance qui utilise des munitions, le porteur doit toujours recharger en utilisant le nombre normal d'actions, bien que cela génère des munitions de manière automatique. Cela fonctionne comme des munitions normales et <em>Arsenal embrasé</em> ne peut utiliser d'autres types de munitions.</p>
+<p>Toute créature autre que vous ou la cible qui tente de toucher, de Faire une Frappe avec ou de Désarmer l'arme subit @Damage[1d6[fire]]{1d6 dégâts de feu} à chaque fois.</p>
+
+<p><b>Intensifié (4e)</b> Vous pouvez cibler jusqu'à 5 créatures consentantes et choisir une arme différente pour chaque cible. L'arme fonctionne comme une arme <em>de frappe enflammée +1</em>.</p>
+<p><b>Intensifié (6e)</b> comme au rang 4, mais les armes fonctionnent comme des armes <em>enflammées de frappe supérieure +2</em>.</p>
+<p><b>Intensifié (8e)</b> comme au rang 4, mais les armes fonctionnent comme des armes <em>enflammées supérieures de frappe supérieure +3</em>.</p>
+<p><b>Intensifié (10e)</b> comme au rang 4, mais les armes fonctionnent comme des armes <em>enflammées supérieures de frappe majeure +3</em>.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">Regret du combattant (Warrior&#39;s Regret)</h4>
+                                <div class="spell-actions">2</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                
+                                <span class="spell-trait">Concentrate</span>
+                                
+                                <span class="spell-trait">Malédiction</span>
+                                
+                                <span class="spell-trait">Émotion</span>
+                                
+                                <span class="spell-trait">Manipulate</span>
+                                
+                                <span class="spell-trait">Mental</span>
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-details">
+                                
+                                <span class="detail-label">Portée</span>
+                                <span>contact</span>
+                                
+                                
+                                
+                                <span class="detail-label">Cibles</span>
+                                <span>1 créature</span>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                            <div class="spell-description">
+                                <p>Les regrets rongent l'esprit de la cible, la punissant de sa violence jusqu'à ce qu'elle cesse les hostilités. La cible doit tenter un jet de Volonté.</p>
+
+<p><b>Succès critique</b> La cible n'est pas affectée.</p>
+<p><b>Succès</b> À la fin de son prochain tour, la cible subit 1d8 dégâts par créature différente qu'elle a intentionnellement blessée lors de ce tour (1d8 si elle a blessé une créature, 2d8 si elle a blessé deux créatures différentes et ainsi de suite). Le maximum est de 4d8 si elle a blessé 4 créatures différentes.</p>
+<p><b>Échec</b> Comme en cas de succès, sauf que la malédiction blesse la cible à la fin de chacun de ses tours et dure jusqu'à ce que la cible passe un tour complet sans blesser intentionnellement une autre créature.</p>
+<p><b>Échec critique</b> Comme en cas de succès, sauf que la malédiction blesse la cible à la fin de chacun de ses tours et dure jusqu'à ce que la cible passe 24 heures à expier les regrets perçus.</p>
+
+<p><b>Intensifié (+2)</b> Le montant des dégâts mentaux que la cible subit pour chaque créature qu'elle a endommagée au cours de ce tour augmente de 1d8 et les dégâts maximum que la cible peut subir par tour augmentent de 4d8.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+        <footer class="grimoire-footer">
+            <p>Grimoire généré le 27/08/2025 à 10:28</p>
+            <p>Pathfinder et tous les éléments associés sont la propriété de Paizo Inc.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Gestion des onglets
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Désactiver tous les onglets
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Désactiver toutes les sections
+                    const sections = document.querySelectorAll('.spell-section');
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // Activer l'onglet cliqué
+                    this.classList.add('active');
+                    
+                    // Activer la section correspondante
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

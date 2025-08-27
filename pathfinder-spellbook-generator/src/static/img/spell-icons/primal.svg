@@ -1,0 +1,13 @@
+spellbook_generator/
+│
+├── builder/
+│   └── spell.py  # Le fichier contenant la classe Spell et la fonction build_spellbook
+│
+├── data/
+│   └── character_data.json  # Fichier JSON contenant les données du personnage
+│
+├── templates/
+│   └── spellbook_template.html  # Modèle HTML pour le livre de sorts
+│
+├── spellbook_generator.py  # Script principal pour générer le livre de sorts
+└── styles.css  # Fichier CSS pour le style

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Grimoire Pathfinder 2e{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/spellbook.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/pf2-logo.png') }}" alt="Pathfinder 2e" class="header-logo">
+            <h1>Grimoire Pathfinder 2e</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Grimoire Pathfinder 2e - Créé avec passion pour les joueurs de Pathfinder</p>
+        <p class="small">Pathfinder et tous les éléments associés sont la propriété de Paizo Inc.</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/spellbook.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

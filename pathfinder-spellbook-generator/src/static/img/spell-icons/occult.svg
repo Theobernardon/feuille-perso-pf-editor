@@ -1,0 +1,13 @@
+spellbook_project/
+│
+├── builder/
+│   └── spell.py
+│
+├── data/
+│   └── character_data.json
+│
+├── templates/
+│   └── spellbook_template.html
+│
+├── generate_spellbook.py
+└── requirements.txt

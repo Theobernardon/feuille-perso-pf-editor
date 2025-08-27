@@ -1,0 +1,6 @@
+spellbook_generator/
+│
+├── character_data.json
+├── spellbook_generator.py
+└── templates/
+    └── spellbook_template.html

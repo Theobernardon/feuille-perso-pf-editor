@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimoire de {{ character_name }} - Pathfinder 2e</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+        
+        :root {
+            --parchment: #f5e7c1;
+            --ink: #2a2822;
+            --primary: #8b0000;
+            --secondary: #4b3621;
+            --accent: #c19a6b;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --border: #a67c52;
+            --arcane: #6e3a9c;
+            --divine: #d4af37;
+            --occult: #990099;
+            --primal: #007a3d;
+        }
+        
+        /* Styles globaux */
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: var(--parchment);
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c4H2hWAAACQklEQVR4nO3WiXLDIAwFUGIg4I5D4jjx//3nktjZ7Gw7tdOZ7UwHQOhJIEO4uLi4uPgP2P9ykV3XeO+b7t9cpH7UD3lZZJDcBvJUPUhkkHz1J2g1GJJPRYzZP+kCGIq+I2Jr/YjjzI+S+ZuXlhXJSoZ6KacdElnJk59UspJBSodiauoAlYzYt0u3XyJkotIdci3SVTpAJSO3cpEwDDVI/aQN7UQZBoltPIQYIH1BjNC/qqGc+yvj9KCMy1hGgs9pOEakY9or4kiFTFOg9GcYggy7RcIUt2eE9JtFJGy3+6yQQMVLHsmQYdztMMDlnAdHQiW5BqTqQ5wjb4WumssrIuyGTk2E6PwUfgSEA++ZkpBQXF6L1OtBTaUdXlVTwN6QHNVee2ORshkUw1GJeVwbsrPTvJhbIz5u7i0qvcIi1OQUYe5hkX1ewp0ibFxcm3VVVVnnmxNWGEmvH+S6i8Tk8YD5Q/McYoKt7/vLzO5GnpJgKsrC9SV0stvE2rWFJmsSpAtCnOo21JJJWsZS3XLIttODExdj3DbsJNXmmaQP3zXryHNeCJMdXUt6luCIqBN/c7Y9FcfBJE8ztbouM3sfBlsH3+vZp7+6teXcLsYY2WE+XHZoyU2+Qgw3C8OZQw0jI8XcCWEZ3g19fA3JMQUuNJK6ZM7WnzIcOdBJXjcJE4fyS4aJw/ZP9MvGEqcgOJ0ywq6mnx33JQNOGfU+Qv3m4GJz+sj3DlcGnGXY/t3ztvwnJhcXFxcXfwHBQRUnQRQqxAAAAABJRU5ErkJggg==');
+            color: var(--ink);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .grimoire {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: var(--parchment);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 8px var(--shadow);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grimoire::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c4H2hWAAACQklEQVR4nO3WiXLDIAwFUGIg4I5D4jjx//3nktjZ7Gw7tdOZ7UwHQOhJIEO4uLi4uPgP2P9ykV3XeO+b7t9cpH7UD3lZZJDcBvJUPUhkkHz1J2g1GJJPRYzZP+kCGIq+I2Jr/YjjzI+S+ZuXlhXJSoZ6KacdElnJk59UspJBSodiauoAlYzYt0u3XyJkotIdci3SVTpAJSO3cpEwDDVI/aQN7UQZBoltPIQYIH1BjNC/qqGc+yvj9KCMy1hGgs9pOEakY9or4kiFTFOg9GcYggy7RcIUt2eE9JtFJGy3+6yQQMVLHsmQYdztMMDlnAdHQiW5BqTqQ5wjb4WumssrIuyGTk2E6PwUfgSEA++ZkpBQXF6L1OtBTaUdXlVTwN6QHNVee2ORshkUw1GJeVwbsrPTvJhbIz5u7i0qvcIi1OQUYe5hkX1ewp0ibFxcm3VVVVnnmxNWGEmvH+S6i8Tk8YD5Q/McYoKt7/vLzO5GnpJgKsrC9SV0stvE2rWFJmsSpAtCnOo21JJJWsZS3XLIttODExdj3DbsJNXmmaQP3zXryHNeCJMdXUt6luCIqBN/c7Y9FcfBJE8ztbouM3sfBlsH3+vZp7+6teXcLsYY2WE+XHZoyU2+Qgw3C8OZQw0jI8XcCWEZ3g19fA3JMQUuNJK6ZM7WnzIcOdBJXjcJE4fyS4aJw/ZP9MvGEqcgOJ0ywq6mnx33JQNOGfU+Qv3m4GJz+sj3DlcGnGXY/t3ztvwnJhcXFxcXfwHBQRUnQRQqxAAAAABJRU5ErkJggg==');
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* En-tête du grimoire */
+        .grimoire-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+        
+        .grimoire-title {
+            font-family: 'IM Fell English', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--primary);
+            text-shadow: 1px 1px 2px var(--shadow);
+        }
+        
+        .grimoire-subtitle {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: var(--secondary);
+        }
+        
+        .character-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            margin: 0.5rem;
+            text-align: center;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .tradition-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+            margin-left: 0.5rem;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+        
+        .tradition-arcane { background-color: var(--arcane); }
+        .tradition-divine { background-color: var(--divine); }
+        .tradition-occult { background-color: var(--occult); }
+        .tradition-primal { background-color: var(--primal); }
+        
+        /* Navigation */
+        .grimoire-nav {
+            margin: 2rem 0;
+            border-bottom: 1px solid var(--accent);
+        }
+        
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-x: auto;
+        }
+        
+        .nav-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            border-bottom: none;
+            background-color: rgba(245, 231, 193, 0.8);
+            margin-right: 0.2rem;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+        }
+        
+        .nav-tab:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .nav-tab.active {
+            background-color: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        /* Sections de sorts */
+        .spell-section {
+            display: none;
+        }
+        
+        .spell-section.active {
+            display: block;
+        }
+        
+        .level-header {
+            font-family: 'IM Fell English', serif;
+            color: var(--primary);
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 0.3rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .level-header h3 {
+            margin: 0;
+        }
+        
+        .slots-info {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+        
+        /* Cartes de sorts */
+        .spell-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .spell-card {
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .spell-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .spell-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spell-name {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--primary);
+        }
+        
+        .spell-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 2px;
+        }
+        
+        .spell-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spell-trait {
+            font-size: 0.7rem;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.1rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        .spell-trait.rarity-uncommon {
+            background-color: #c45500;
+        }
+        
+        .spell-trait.rarity-rare {
+            background-color: #0c5da5;
+        }
+        
+        .spell-trait.rarity-unique {
+            background-color: #800080;
+        }
+        
+        .spell-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .spell-description {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--accent);
+            padding-top: 0.8rem;
+        }
+        
+        /* Pied de page */
+        .grimoire-footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            border-top: 1px solid var(--accent);
+            padding-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grimoire {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            
+            .spell-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .grimoire-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Boutons d'impression */
+        .print-controls {
+            text-align: right;
+            margin: 1rem 0;
+        }
+        
+        .print-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Crimson Text', serif;
+        }
+        
+        .print-btn:hover {
+            background-color: var(--primary);
+        }
+        
+        @media print {
+            body {
+                background: none;
+                color: black;
+            }
+            
+            .grimoire {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .print-controls {
+                display: none;
+            }
+            
+            .nav-tab:not(.active) {
+                display: none;
+            }
+            
+            .nav-tabs {
+                border-bottom: 1px solid #000;
+            }
+            
+            .spell-section:not(.active) {
+                display: block;
+            }
+            
+            .spell-card {
+                break-inside: avoid;
+                box-shadow: none;
+            }
+            
+            .level-header {
+                break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grimoire">
+        <div class="print-controls">
+            <button class="print-btn" onclick="window.print()">Imprimer le Grimoire</button>
+        </div>
+        
+        <header class="grimoire-header">
+            <h1 class="grimoire-title">Grimoire de {{ character_name }}</h1>
+            <p class="grimoire-subtitle">{{ character_class }} de niveau {{ character_level }}</p>
+            
+            <div class="character-info">
+                <div class="info-item">
+                    <span class="info-label">Type d'incantateur:</span>
+                    <span>{{ spellcasting_type|capitalize }}</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Tradition:</span>
+                    <span>{{ tradition_fr|capitalize }}</span>
+                    <span class="tradition-badge tradition-{{ tradition }}">{{ tradition|capitalize }}</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Caractéristique d'incantation:</span>
+                    <span>{{ spellcasting_ability }}</span>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="grimoire-nav">
+            <ul class="nav-tabs">
+                <li class="nav-tab active" data-target="cantrips">Tours de magie</li>
+                {% if spellbook.focus %}
+                <li class="nav-tab" data-target="focus">Sorts focalisés</li>
+                {% endif %}
+                
+                {% for level in range(1, 11) %}
+                    {% if spellbook.spells[level]|length > 0 %}
+                    <li class="nav-tab" data-target="level{{ level }}">Niveau {{ level }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+        
+        <div class="spell-sections">
+            <!-- Tours de magie -->
+            <div class="spell-section active" id="cantrips">
+                <div class="level-header">
+                    <h3>Tours de magie</h3>
+                </div>
+                
+                <div class="spell-cards">
+                    {% for spell in spellbook.cantrips %}
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">{{ spell.name }}</h4>
+                            <div class="spell-actions">{{ spell.actions|actions_html|safe }}</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            {% for trait in spell.traits|format_traits %}
+                            <span class="spell-trait">{{ trait }}</span>
+                            {% endfor %}
+                            
+                            {% if spell.rarity and spell.rarity != "common" %}
+                            <span class="spell-trait rarity-{{ spell.rarity }}">{{ spell.rarity|capitalize }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="spell-details">
+                            {% if spell.range %}
+                            <span class="detail-label">Portée</span>
+                            <span>{{ spell.range }}</span>
+                            {% endif %}
+                            
+                            {% if spell.targets %}
+                            <span class="detail-label">Cibles</span>
+                            <span>{{ spell.targets }}</span>
+                            {% endif %}
+                            
+                            {% if spell.area %}
+                            <span class="detail-label">Zone</span>
+                            <span>{{ spell.area }}</span>
+                            {% endif %}
+                            
+                            {% if spell.duration %}
+                            <span class="detail-label">Durée</span>
+                            <span>{{ spell.duration }}</span>
+                            {% endif %}
+                            
+                            {% if spell.save %}
+                            <span class="detail-label">Sauvegarde</span>
+                            <span>{{ spell.save }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="spell-description">
+                            {{ spell.description|safe }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Sorts focalisés -->
+            {% if spellbook.focus %}
+            <div class="spell-section" id="focus">
+                <div class="level-header">
+                    <h3>Sorts focalisés</h3>
+                </div>
+                
+                <div class="spell-cards">
+                    {% for spell in spellbook.focus %}
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            <h4 class="spell-name">{{ spell.name }}</h4>
+                            <div class="spell-actions">{{ spell.actions|actions_html|safe }}</div>
+                        </div>
+                        
+                        <div class="spell-traits">
+                            {% for trait in spell.traits|format_traits %}
+                            <span class="spell-trait">{{ trait }}</span>
+                            {% endfor %}
+                            
+                            {% if spell.rarity and spell.rarity != "common" %}
+                            <span class="spell-trait rarity-{{ spell.rarity }}">{{ spell.rarity|capitalize }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="spell-details">
+                            {% if spell.range %}
+                            <span class="detail-label">Portée</span>
+                            <span>{{ spell.range }}</span>
+                            {% endif %}
+                            
+                            {% if spell.targets %}
+                            <span class="detail-label">Cibles</span>
+                            <span>{{ spell.targets }}</span>
+                            {% endif %}
+                            
+                            {% if spell.area %}
+                            <span class="detail-label">Zone</span>
+                            <span>{{ spell.area }}</span>
+                            {% endif %}
+                            
+                            {% if spell.duration %}
+                            <span class="detail-label">Durée</span>
+                            <span>{{ spell.duration }}</span>
+                            {% endif %}
+                            
+                            {% if spell.save %}
+                            <span class="detail-label">Sauvegarde</span>
+                            <span>{{ spell.save }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="spell-description">
+                            {{ spell.description|safe }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Sorts par niveau -->
+            {% for level in range(1, 11) %}
+                {% if spellbook.spells[level]|length > 0 %}
+                <div class="spell-section" id="level{{ level }}">
+                    <div class="level-header">
+                        <h3>Sorts de niveau {{ level }}</h3>
+                    </div>
+                    
+                    <div class="spell-cards">
+                        {% for spell in spellbook.spells[level] %}
+                        <div class="spell-card">
+                            <div class="spell-header">
+                                <h4 class="spell-name">{{ spell.name }}</h4>
+                                <div class="spell-actions">{{ spell.actions|actions_html|safe }}</div>
+                            </div>
+                            
+                            <div class="spell-traits">
+                                {% for trait in spell.traits|format_traits %}
+                                <span class="spell-trait">{{ trait }}</span>
+                                {% endfor %}
+                                
+                                {% if spell.rarity and spell.rarity != "common" %}
+                                <span class="spell-trait rarity-{{ spell.rarity }}">{{ spell.rarity|capitalize }}</span>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="spell-details">
+                                {% if spell.range %}
+                                <span class="detail-label">Portée</span>
+                                <span>{{ spell.range }}</span>
+                                {% endif %}
+                                
+                                {% if spell.targets %}
+                                <span class="detail-label">Cibles</span>
+                                <span>{{ spell.targets }}</span>
+                                {% endif %}
+                                
+                                {% if spell.area %}
+                                <span class="detail-label">Zone</span>
+                                <span>{{ spell.area }}</span>
+                                {% endif %}
+                                
+                                {% if spell.duration %}
+                                <span class="detail-label">Durée</span>
+                                <span>{{ spell.duration }}</span>
+                                {% endif %}
+                                
+                                {% if spell.save %}
+                                <span class="detail-label">Sauvegarde</span>
+                                <span>{{ spell.save }}</span>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="spell-description">
+                                {{ spell.description|safe }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        <footer class="grimoire-footer">
+            <p>Grimoire généré le {{ generation_date }}</p>
+            <p>Pathfinder et tous les éléments associés sont la propriété de Paizo Inc.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Gestion des onglets
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Désactiver tous les onglets
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Désactiver toutes les sections
+                    const sections = document.querySelectorAll('.spell-section');
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // Activer l'onglet cliqué
+                    this.classList.add('active');
+                    
+                    // Activer la section correspondante
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

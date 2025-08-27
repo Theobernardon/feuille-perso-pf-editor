@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Grimoire Pathfinder 2e - Générateur{% endblock %}
+
+{% block content %}
+<section class="welcome">
+    <h2>Bienvenue dans le Générateur de Grimoire</h2>
+    <p>Cet outil vous permet de créer un grimoire de sorts élégant à partir des données de votre personnage Pathfinder 2e.</p>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <div class="upload-container">
+        <h3>Téléchargez votre fichier de personnage</h3>
+        <p>Pour commencer, importez le fichier JSON de votre personnage exporté depuis Foundry VTT.</p>
+        
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <div class="file-input">
+                <input type="file" name="file" id="file" accept=".json">
+                <label for="file">
+                    <span class="icon">📁</span>
+                    <span class="label">Choisir un fichier...</span>
+                </label>
+                <span id="file-name">Aucun fichier sélectionné</span>
+            </div>
+            <button type="submit" class="btn primary">Générer le Grimoire</button>
+        </form>
+    </div>
+    
+    <div class="instructions">
+        <h3>Comment utiliser cet outil</h3>
+        <ol>
+            <li>Exportez votre personnage depuis Foundry VTT au format JSON</li>
+            <li>Téléchargez le fichier JSON via le formulaire ci-dessus</li>
+            <li>Cliquez sur "Générer le Grimoire" pour créer votre livre de sorts</li>
+            <li>Vous pourrez ensuite télécharger ou imprimer votre grimoire personnalisé</li>
+        </ol>
+    </div>
+</section>
+
+<section class="features">
+    <h2>Fonctionnalités</h2>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">🧙</div>
+            <h3>Organisation par tradition</h3>
+            <p>Les sorts sont organisés selon leur tradition magique : arcanique, divine, primordiale ou occulte.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="icon">📚</div>
+            <h3>Classement par niveau</h3>
+            <p>Naviguez facilement parmi vos sorts grâce à une organisation claire par niveau.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="icon">🎨</div>
+            <h3>Design thématique</h3>
+            <p>Un design élégant inspiré des grimoires médiévaux et de l'esthétique de Pathfinder.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="icon">🔍</div>
+            <h3>Détails complets</h3>
+            <p>Visualisez tous les détails de vos sorts : actions, portée, zone d'effet, durée, etc.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Script pour afficher le nom du fichier sélectionné
+    document.getElementById('file').addEventListener('change', function() {
+        const fileName = this.files[0] ? this.files[0].name : 'Aucun fichier sélectionné';
+        document.getElementById('file-name').textContent = fileName;
+    });
+</script>
+{% endblock %}

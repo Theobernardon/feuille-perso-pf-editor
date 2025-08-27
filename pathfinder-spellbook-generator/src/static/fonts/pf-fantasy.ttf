@@ -1,0 +1,138 @@
+import json
+from builder.spell import build_spellbook
+
+def load_character_data(file_path):
+    """Charge les données du personnage à partir d'un fichier JSON."""
+    with open(file_path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def generate_html(spellbook):
+    """Génère le code HTML pour le livre de sorts."""
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grimoire de Sorts</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
+                color: #333;
+            }
+            h1 {
+                text-align: center;
+                color: #4a4a4a;
+            }
+            .spell-category {
+                margin: 20px 0;
+                padding: 10px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .spell {
+                margin: 10px 0;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #fafafa;
+            }
+            .spell h2 {
+                margin: 0;
+                font-size: 1.2em;
+                color: #2c3e50;
+            }
+            .spell p {
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Grimoire de Sorts</h1>
+    """
+
+    # Ajouter les sorts cantrips
+    if spellbook["cantrips"]:
+        html_content += '<div class="spell-category"><h2>Cantrips</h2>'
+        for spell in spellbook["cantrips"]:
+            html_content += f"""
+            <div class="spell">
+                <h2>{spell.name}</h2>
+                <p><strong>Niveau:</strong> {spell.level}</p>
+                <p><strong>Type:</strong> {spell.type}</p>
+                <p><strong>Actions:</strong> {spell.actions}</p>
+                <p><strong>Portée:</strong> {spell.range}</p>
+                <p><strong>Zone:</strong> {spell.area}</p>
+                <p><strong>Cible:</strong> {spell.target}</p>
+                <p><strong>Durée:</strong> {spell.duration}</p>
+                <p><strong>Description:</strong> {spell.description}</p>
+            </div>
+            """
+        html_content += '</div>'
+
+    # Ajouter les sorts focus
+    if spellbook["focus"]:
+        html_content += '<div class="spell-category"><h2>Sorts Focalisés</h2>'
+        for spell in spellbook["focus"]:
+            html_content += f"""
+            <div class="spell">
+                <h2>{spell.name}</h2>
+                <p><strong>Niveau:</strong> {spell.level}</p>
+                <p><strong>Type:</strong> {spell.type}</p>
+                <p><strong>Actions:</strong> {spell.actions}</p>
+                <p><strong>Portée:</strong> {spell.range}</p>
+                <p><strong>Zone:</strong> {spell.area}</p>
+                <p><strong>Cible:</strong> {spell.target}</p>
+                <p><strong>Durée:</strong> {spell.duration}</p>
+                <p><strong>Description:</strong> {spell.description}</p>
+            </div>
+            """
+        html_content += '</div>'
+
+    # Ajouter les sorts réguliers par niveau
+    for level, spells in spellbook["spells"].items():
+        if spells:
+            html_content += f'<div class="spell-category"><h2>Sorts de Niveau {level}</h2>'
+            for spell in spells:
+                html_content += f"""
+                <div class="spell">
+                    <h2>{spell.name}</h2>
+                    <p><strong>Niveau:</strong> {spell.level}</p>
+                    <p><strong>Type:</strong> {spell.type}</p>
+                    <p><strong>Actions:</strong> {spell.actions}</p>
+                    <p><strong>Portée:</strong> {spell.range}</p>
+                    <p><strong>Zone:</strong> {spell.area}</p>
+                    <p><strong>Cible:</strong> {spell.target}</p>
+                    <p><strong>Durée:</strong> {spell.duration}</p>
+                    <p><strong>Description:</strong> {spell.description}</p>
+                </div>
+                """
+            html_content += '</div>'
+
+    html_content += """
+    </body>
+    </html>
+    """
+    return html_content
+
+def main():
+    # Charger les données du personnage
+    character_data = load_character_data('character_data.json')
+
+    # Construire le grimoire
+    spellbook = build_spellbook(character_data)
+
+    # Générer le HTML
+    html_output = generate_html(spellbook)
+
+    # Sauvegarder le HTML dans un fichier
+    with open('spellbook.html', 'w', encoding='utf-8') as f:
+        f.write(html_output)
+
+    print("Le livre de sorts a été généré avec succès dans 'spellbook.html'.")
+
+if __name__ == "__main__":
+    main()
