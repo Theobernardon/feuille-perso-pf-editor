@@ -8,7 +8,8 @@
     .page {
         padding: 20px;
         box-sizing: border-box;
-        width: 21cm;
+        width: 100%; /* Largeur responsive */
+        max-width: 21cm; /* Maximum de 21cm */
         margin: 0 auto;
         background: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -168,7 +169,26 @@
         margin-top: 60px; /* Espace pour la barre de navigation */
         padding-bottom: 20px;
     }
+    @media (max-width: 768px) {
+    .section {
+        columns: 1 !important; /* Forcer une seule colonne sur petits écrans */
+    }
     
+    /* Ajuster la taille des textes */
+    h1 {
+        font-size: 20pt;
+    }
+    
+    h2 {
+        font-size: 16pt;
+    }
+    
+    /* Ajuster l'espacement */
+    .item {
+        margin-bottom: 8px;
+        padding: 8px;
+    }
+}
     @media print {
         body {
             background: none;
